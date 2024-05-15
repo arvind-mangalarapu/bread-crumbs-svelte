@@ -1,5 +1,6 @@
 <script>
 	import Status from './../lib/components/Status.svelte';
+  import DropDown from '../lib/components/Drop-down.svelte';
   // import jsonData from '../../data/index.json'
 
   const info = [
@@ -193,10 +194,10 @@
             <div class="ml-12 mt-[46px]">
               <p class=" text-20 font-bold text-white mx-auto ">{item.heading}</p>
             </div>
-            <div class="ml-7 mt-[86px] flex flex-col">
-              <a href="/"  class="text-16 text-white font-bold hover:bg-purplevol-400  rounded-2xl  pl-5 mb-6 py-6  max-w-[180px]">{item.type}</a>
-              <a href="/"  class="text-16 text-white font-bold hover:bg-purplevol-400  rounded-2xl  pl-5 mb-6 py-6  max-w-[180px]">{item.kind}</a>
-              <a href="/"  class="text-16 text-white hover:bg-purplevol-400 rounded-2xl  pl-5 mb-6 py-6  max-w-[180px]">subscription</a>
+            <div class="ml-7 mt-[86px] flex flex-col h-[193px] gap-1">
+              <a href="/"  class="text-16 text-white font-bold hover:bg-purplevol-400  rounded-2xl  pl-5 py-5  max-w-[180px]">{item.type}</a>
+              <a href="/"  class="text-16 text-white font-bold hover:bg-purplevol-400  rounded-2xl  pl-5 py-5  max-w-[180px]">{item.kind}</a>
+              <a href="/"  class="text-16 text-white hover:bg-purplevol-400 rounded-2xl  pl-5 py-5  max-w-[180px]">subscription</a>
             </div>
     
         </div>
@@ -401,7 +402,7 @@
           >
             Status</div>
         </div>
-     <div class="max-h-72 overflow-y-auto"><Status/></div>
+     <div class="h-44 overflow-y-auto"><Status/></div>
         
         <div class="flex gap-10 items-center">
           <p class="text-purplevol-500 mt-5 text-12 font-medium">
@@ -412,7 +413,8 @@
           >
             <p class="text-purplevol-500 text-12 font-medium">Display</p>
             <div class="bg-purplevol-900 px-4 py-2 rounded-lg">
-              <select
+              <DropDown/>
+              <!-- <select
                 name="shipmentStatus"
                 id="shipmentStatus"
                 class="bg-purplevol-900 text-white"
@@ -427,7 +429,7 @@
                 <option value="option8">8</option>
                 <option value="option9">9</option>
                 <option value="option10">10</option>
-              </select>
+              </select> -->
             </div>
           </div>
         </div>
