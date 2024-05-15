@@ -206,7 +206,7 @@
     </div>
     <!-- main page -->
 
-    <section class=" h-[100vh] flex-1 max-w-[90%] mx-auto p-6 {slideOpen?'animate-move-right max-w-[74%] ml-4 pl-0':'animate-move-left'}">
+    <section class=" h-[100vh] flex-1  mx-auto p-6 {slideOpen?'animate-move-right max-w-[74%] ml-4 pl-0':'animate-move-left max-w-[90%]'}">
       <a class="text-[#EAE9FD] font-thin text-14 flex items-baseline gap-2">
         Orders<img src="images/forwardSingle.svg" alt="3" />
       </a>
