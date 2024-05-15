@@ -439,3 +439,11 @@
 
 
 
+  <style>
+    /* Custom scrollbar styles */
+    .dropdown-content::-webkit-scrollbar {
+      display: none;
+    }
+  
+   
+  </style>
