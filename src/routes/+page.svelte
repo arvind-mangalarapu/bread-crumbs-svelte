@@ -1,6 +1,86 @@
+<script>
+	import Status from './../lib/components/Status.svelte';
+  // import jsonData from '../../data/index.json'
 
-  <main class="bg-purplevol-1200 flex">
-    <div class="flex relative w-[350px]">
+  const info = [
+	{
+		"id": "inventory",
+		"heading": "Inventory",
+		"type": "Aurora",
+		"kind": "Zephyr",
+		"subscription": true
+	},
+	{
+		"id": "customers",
+		"heading": "Customers",
+		"type": "Orion",
+		"kind": "Nimbus",
+		"subscription": false
+	},
+	{
+		"id": "orders",
+		"heading": "Orders",
+		"type": "Cassiopeia",
+		"kind": "Terra",
+		"subscription": true
+	},
+	{
+		"id": "shipments",
+		"heading": "Shipments",
+		"type": "Lyra",
+		"kind": "Voyager",
+		"subscription": false
+	},
+	{
+		"id": "discounts",
+		"heading": "Discounts",
+		"type": "Andromeda",
+		"kind": "Celestial",
+		"subscription": true
+	},
+	{
+		"id": "notifications",
+		"heading": "Notifications",
+		"type": "Phoenix",
+		"kind": "Eclipse",
+		"subscription": false
+	},
+	{
+		"id": "downloads",
+		"heading": "Downloads",
+		"type": "Stellar",
+		"kind": "Solstice",
+		"subscription": true
+	},
+	{
+		"id": "settings",
+		"heading": "Settings",
+		"type": "Neptune",
+		"kind": "Galaxy",
+		"subscription": false
+	}
+]
+
+
+  let slideOpen = false;
+ 
+
+  function openMenu() {
+    console.log("openMenu clidcked")
+    slideOpen = true;
+  }
+  function closeMenu() {
+    console.log("closeMenu clidcked")
+    slideOpen = false;
+  }
+
+
+
+</script>
+ 
+ 
+ <main class="bg-purplevol-1200 flex">
+    <div class="flex relative w-[100px]   ">
       <!-- side nav -->
       <aside
         class="flex flex-col justify-between items-center w-[100px] h-[100vh] bg-purplevol-1000 shadow-custom z-10 absolute"
@@ -10,16 +90,18 @@
           <nav
             class="nav-list flex flex-col justify-evenly items-center h-[588px]"
           >
-            <a
-              href="#inventory"
-              class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
-              ><img
-                src="images/inventory.svg"
-                alt="#"
-                class="hover:scale-110 hover:fill-white"
-            /></a>
+           
+              <a on:click={openMenu}
+                href="#inventory"
+                class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
+                ><img
+                  src="images/inventory.svg"
+                  alt="#"
+                  class="hover:scale-110 hover:fill-white"
+              /></a>
+           
 
-            <a
+            <a on:click={openMenu}
               href="#customers"
               class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
               ><img
@@ -29,7 +111,7 @@
               />
             </a>
 
-            <a
+            <a on:click={openMenu}
               href="#orders"
               class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
               ><img
@@ -38,7 +120,7 @@
                 class="hover:scale-110 hover:fill-white"
             /></a>
 
-            <a
+            <a   on:click={openMenu}
               href="#shipments"
               class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
               ><img
@@ -47,7 +129,7 @@
                 class="hover:scale-110 hover:fill-white"
             /></a>
 
-            <a
+            <a  on:click={openMenu}
               href="#discounts"
               class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
               ><img
@@ -56,7 +138,7 @@
                 class="hover:scale-110 hover:fill-white"
             /></a>
 
-            <a
+            <a  on:click={openMenu}
               href="#notifications"
               class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
               ><img
@@ -65,7 +147,7 @@
                 class="hover:scale-110 hover:fill-white"
             /></a>
 
-            <a
+            <a  on:click={openMenu}
               href="#downloads"
               class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
               ><img
@@ -74,7 +156,7 @@
                 class="hover:scale-110 hover:fill-white"
             /></a>
 
-            <a
+            <a  on:click={openMenu}
               href="#settings"
               class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
               ><img
@@ -94,104 +176,46 @@
       </aside>
       <!-- popout nav -->
       <div
-        class="h-[100vh] w-[236px] bg-[#1D1D41] absolute hidden rounded-tr-[20px] rounded-br-[20px]"
+      class="h-[100vh] w-[236px] bg-[#1D1D41] absolute rounded-tr-[20px] rounded-br-[20px] ml-[100px] {slideOpen?'animate-slide-right':'animate-slide-left'}"
         id="popoutNav"
       >
-        <div
+        <!-- svelte-ignore a11y_click_events_have_key_events -->
+        <!-- svelte-ignore a11y_no_static_element_interactions -->
+        <div on:click={closeMenu}
           class="absolute w-5 h-14 right-0 top-7 flex justify-center items-center bg-[#2F2F5C] rounded-tl-[14px] rounded-bl-[14px]"
           id="closeSidePopout"
         >
           <img src="images/backsingle.svg" alt="close arrow" />
         </div>
-        <h1
-          class="text-20 space-x-[10%] text-white mt-6 ml-11 font-bold hidden target:block"
-          id="inventory"
-        >
-          Inventory
-        </h1>
-        <h1
-          class="text-20 space-x-[10%] text-white mt-6 ml-11 font-bold hidden target:block"
-          id="customers"
-        >
-          Customers
-        </h1>
-        <h1
-          class="text-20 space-x-[10%] text-white mt-6 ml-11 font-bold hidden target:block"
-          id="orders"
-        >
-          Orders
-        </h1>
-        <h1
-          class="text-20 space-x-[10%] text-white mt-6 ml-11 font-bold hidden target:block"
-          id="shipments"
-        >
-          Shipments
-        </h1>
-        <h1
-          class="text-20 space-x-[10%] text-white mt-6 ml-11 font-bold hidden target:block"
-          id="discounts"
-        >
-          Discounts
-        </h1>
-        <h1
-          class="text-20 space-x-[10%] text-white mt-6 ml-11 font-bold hidden target:block"
-          id="notifications"
-        >
-          Notifications
-        </h1>
-        <h1
-          class="text-20 space-x-[10%] text-white mt-6 ml-11 font-bold hidden target:block"
-          id="downloads"
-        >
-          Downloads
-        </h1>
-        <div class="hidden target:block" id="settings">
-          <p class="text-20 space-x-[10%] text-white mt-6 ml-11 font-bold">
-            Settings
-          </p>
+        {#each info as item}
+        <div class=" hidden target:block " id={item.id} >
+          
+            <div class="ml-12 mt-[46px]">
+              <p class=" text-20 font-bold text-white mx-auto ">{item.heading}</p>
+            </div>
+            <div class="ml-7 mt-[86px] flex flex-col">
+              <a href="/"  class="text-16 text-white font-bold hover:bg-purplevol-400  rounded-2xl  pl-5 mb-6 py-6  max-w-[180px]">{item.type}</a>
+              <a href="/"  class="text-16 text-white font-bold hover:bg-purplevol-400  rounded-2xl  pl-5 mb-6 py-6  max-w-[180px]">{item.kind}</a>
+              <a href="/"  class="text-16 text-white hover:bg-purplevol-400 rounded-2xl  pl-5 mb-6 py-6  max-w-[180px]">subscription</a>
+            </div>
+    
         </div>
-
-        <nav
-          class="flex flex-col gap-4 justify-center items-center mt-14"
-          id="navContainer"
-        >
-          <div>
-            <p
-              class="text-16 text-white text-center font-bold hover:bg-purplevol-400 w-48 h-14 flex justify-center items-center rounded-2xl"
-            >
-              Active orders
-            </p>
-          </div>
-          <div>
-            <p
-              class="text-16 text-white text-center font-bold hover:bg-purplevol-400 w-48 h-14 flex justify-center items-center rounded-2xl"
-            >
-              COD orders
-            </p>
-          </div>
-          <div>
-            <p
-              class="text-16 text-white text-center hover:bg-purplevol-400 w-48 h-14 flex justify-center items-center rounded-2xl"
-            >
-              subscriptions
-            </p>
-          </div>
-        </nav>
+        {/each}  
       </div>
     </div>
     <!-- main page -->
 
-    <section class="left-[350px] h-[100vh] flex-1 max-w-[90%] mx-auto p-6">
-      <p class="text-[#EAE9FD] font-thin text-14 flex items-baseline gap-2">
+    <section class=" h-[100vh] flex-1 max-w-[90%] mx-auto p-6 {slideOpen?'animate-move-right max-w-[74%] ml-4 pl-0':'animate-move-left'}">
+      <a class="text-[#EAE9FD] font-thin text-14 flex items-baseline gap-2">
         Orders<img src="images/forwardSingle.svg" alt="3" />
-      </p>
+      </a>
       <div class="flex justify-between items-center w-full">
         <p class="text-white text-30 leading-9 font-semibold">Active Orders</p>
-        <p
+        <a href="/"
           class="text-[#EAE9FD] font-thin text-14 flex items-center gap-2 px-8 py-4 bg-purplevol-400 rounded-xl"
         >
           <img src="images/plus.svg" alt="plus" /> New Order
-        </p>
+        </a>
       </div>
       <div class="flex gap-6 items-center">
         <div
@@ -363,138 +387,22 @@
       </div>
 
       <div class="bg-purplevol-1000 mt-5 px-5 py-6 rounded-3xl">
-        <!-- <table class="text-white w-[100%] text-left table-auto">
-          <tr class="h-[30px] border-b-[0.5px] border-purplevol-800">
-            <th
-              class="flex gap-5 text-12 font-semibold tracking-[7%] uppercase text-purplevol-500"
-            >
-              Order Number <img src="images/upArrow.svg" alt="up" />
-            </th>
-            <th
-              class="text-12 font-semibold tracking-[7%] uppercase text-purplevol-500"
-            >
-              Customer Name
-            </th>
-            <th
-              class="flex gap-5 text-12 font-semibold tracking-[7%] uppercase text-purplevol-500"
-            >
-              Order date <img src="images/upArrow.svg" alt="up" />
-            </th>
-            <th
-              class="text-12 font-semibold tracking-[7%] uppercase text-purplevol-500"
-            >
-              Status
-            </th>
-          </tr>
-          <tr class="h-[45px] border-b-[0.5px] border-purplevol-800 text-14">
-            <td>289765432</td>
-            <td>Aartav Saxena</td>
-            <td>Fri 26 Apr, 2024 06:31 am</td>
-            <td class="flex items-center justify-start gap-2">
-              <div class="bg-orangeDark h-3 w-3 rounded-full"></div>
-              On Hold
-            </td>
-          </tr>
-          <tr class="h-[45px] border-b-[0.5px] border-purplevol-800 text-14">
-            <td>289765432</td>
-            <td>Aartav Saxena</td>
-            <td>Fri 26 Apr, 2024 06:31 am</td>
-            <td class="flex items-center justify-start gap-2">
-              <div class="bg-greenDark h-3 w-3 rounded-full"></div>
-              On Hold
-            </td>
-          </tr>
-          <tr class="h-[45px] border-b-[0.5px] border-purplevol-800 text-14">
-            <td>289765432</td>
-            <td>Aartav Saxena</td>
-            <td>Fri 26 Apr, 2024 06:31 am</td>
-            <td class="flex items-center justify-start gap-2">
-              <div class="bg-orangeDark h-3 w-3 rounded-full"></div>
-              On Hold
-            </td>
-          </tr>
-          <tr class="h-[45px] border-b-[0.5px] border-purplevol-800 text-14">
-            <td>289765432</td>
-            <td>Aartav Saxena</td>
-            <td>Fri 26 Apr, 2024 06:31 am</td>
-            <td class="flex items-center justify-start gap-2">
-              <div class="bg-orangeDark h-3 w-3 rounded-full"></div>
-              On Hold
-            </td>
-          </tr>
-          <tr class="h-[45px] border-b-[0.5px] border-purplevol-800 text-14">
-            <td>289765432</td>
-            <td>Aartav Saxena</td>
-            <td>Fri 26 Apr, 2024 06:31 am</td>
-            <td class="flex items-center justify-start gap-2">
-              <div class="bg-orangeDark h-3 w-3 rounded-full"></div>
-              On Hold
-            </td>
-          </tr>
-          <tr class="h-[45px] border-b-[0.5px] border-purplevol-800 text-14">
-            <td>289765432</td>
-            <td>Aartav Saxena</td>
-            <td>Fri 26 Apr, 2024 06:31 am</td>
-            <td class="flex items-center justify-start gap-2">
-              <div class="bg-blueDark h-3 w-3 rounded-full"></div>
-              On Hold
-            </td>
-          </tr>
-          <tr class="h-[45px] border-b-[0.5px] border-purplevol-800 text-14">
-            <td>289765432</td>
-            <td>Aartav Saxena</td>
-            <td>Fri 26 Apr, 2024 06:31 am</td>
-            <td class="flex items-center justify-start gap-2">
-              <div class="bg-orangeDark h-3 w-3 rounded-full"></div>
-              On Hold
-            </td>
-          </tr>
-          <tr class="h-[45px] border-b-[0.5px] border-purplevol-800 text-14">
-            <td>289765432</td>
-            <td>Aartav Saxena</td>
-            <td>Fri 26 Apr, 2024 06:31 am</td>
-            <td class="flex items-center justify-start gap-2">
-              <div class="bg-orangeDark h-3 w-3 rounded-full"></div>
-              On Hold
-            </td>
-          </tr>
-          <tr class="h-[45px] border-b-[0.5px] border-purplevol-800 text-14">
-            <td>289765432</td>
-            <td>Aartav Saxena</td>
-            <td>Fri 26 Apr, 2024 06:31 am</td>
-            <td class="flex items-center justify-start gap-2">
-              <div class="bg-redDark h-3 w-3 rounded-full"></div>
-              On Hold
-            </td>
-          </tr>
-          <tr class="h-[45px] border-b-[0.5px] border-purplevol-800 text-14">
-            <td>289765432</td>
-            <td>Aartav Saxena</td>
-            <td>Fri 26 Apr, 2024 06:31 am</td>
-            <td class="flex items-center justify-start gap-2">
-              <div class="bg-greenDark h-3 w-3 rounded-full"></div>
-              On Hold
-            </td>
-          </tr>
-          <tr class="h-[45px] border-b-[0.5px] border-purplevol-800 text-14">
-            <td>289765432</td>
-            <td>Aartav Saxena</td>
-            <td>Fri 26 Apr, 2024 06:31 am</td>
-            <td class="flex items-center justify-start gap-2">
-              <div class="bg-orangeDark h-3 w-3 rounded-full"></div>
-              On Hold
-            </td>
-          </tr>
-          <tr class="h-[45px] border-b-[0.5px] border-purplevol-800 text-14">
-            <td>289765432</td>
-            <td>Aartav Saxena</td>
-            <td>Fri 26 Apr, 2024 06:31 am</td>
-            <td class="flex items-center justify-start gap-2">
-              <div class="bg-redDark h-3 w-3 rounded-full"></div>
-              On Hold
-            </td>
-          </tr>
-        </table> -->
+        <div class="flex justify-evenly items-center pb-5 border-b-[0.5px] border-purplevol-800">
+          <div  class="flex gap-5 text-12 font-semibold tracking-[7%] uppercase text-purplevol-500 text-left w-[25%]"
+          >
+            Order Number <img src="images/upArrow.svg" alt="up" /></div>
+          <div      class="text-12 font-semibold tracking-[7%] uppercase text-purplevol-500 text-left w-[25%]"
+          >
+            Customer Name</div>
+          <div  class="flex gap-5 text-12 font-semibold tracking-[7%] uppercase text-purplevol-500 text-left w-[25%]"
+          >
+            Order date <img src="images/upArrow.svg" alt="up" /></div>
+          <div   class="text-12 font-semibold tracking-[7%] uppercase text-purplevol-500 text-left w-[25%]"
+          >
+            Status</div>
+        </div>
+     <div class="max-h-72 overflow-y-auto"><Status/></div>
+        
         <div class="flex gap-10 items-center">
           <p class="text-purplevol-500 mt-5 text-12 font-medium">
             1 - 10 of 200
@@ -528,84 +436,4 @@
   </main>
 
 
-<!-- <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const navItems = document.querySelectorAll(".nav-list a");
-    const popoutSideNav = document.getElementById("popoutNav");
-    const closeSidePopout = document.getElementById("closeSidePopout");
 
-    navItems.forEach((navItem) => {
-      navItem.addEventListener("click", (e) => {
-        popoutSideNav.classList.add(
-          "block",
-          "ml-[100px]",
-          "animate-slide-right"
-        );
-        popoutSideNav.classList.remove("hidden", "animate-slide-left");
-        console.log("Updated Class List:", popoutSideNav.classList);
-      });
-    });
-    closeSidePopout.addEventListener("click", (e) => {
-      popoutSideNav.classList.toggle("hidden");
-      popoutSideNav.classList.remove("hidden", "animate-slide-right");
-      popoutSideNav.classList.add("animate-slide-left");
-
-      console.log("Updated Class List:", popoutSideNav.classList);
-    });
-  });
-
-  // fetch("index.json")
-  //   .then((response) => response.json())
-  //   .then((data) => {
-  //     const navContainer = document.getElementById("navContainer");
-  //     data.forEach((item) => {
-  //       const div = document.getElementById("navContainer");
-  //       div.innerHTML = ` <h1 class="text-20 space-x-[10%] text-white mt-6 ml-11 font-bold">
-  //         ${item.heading}
-  //       </h1>
-  //       <nav
-  //         class="flex flex-col gap-4 justify-center items-center mt-14"
-  //         id="navContainer"
-  //       >
-  //         <div>
-  //           <p
-  //             class="text-16 text-white text-center font-bold hover:bg-purplevol-400 w-48 h-14 flex justify-center items-center rounded-2xl"
-  //           >
-  //             ${item.type}
-  //           </p>
-  //         </div>
-  //         <div>
-  //           <p
-  //             class="text-16 text-white text-center font-bold hover:bg-purplevol-400 w-48 h-14 flex justify-center items-center rounded-2xl"
-  //           >
-  //             ${item.kind}
-  //           </p>
-  //         </div>
-  //         <div>
-  //           <p
-  //             class="text-16 text-white text-center hover:bg-purplevol-400 w-48 h-14 flex justify-center items-center rounded-2xl"
-  //           >
-  //      subscription
-  //           </p>
-  //         </div>
-  //       </nav>
-
-  //     `;
-  //     });
-  //   });
-  // const navContainer = document.getElementById("navContainer");
-  // const headingDisplay = document.getElementById("headingDisplay");
-
-  // jsonData.forEach((item) => {
-  //   const navItem = document.createElement("div");
-  //   navItem.innerHTML = `
-  //   <p class="text-16 text-white text-center font-bold hover:bg-purplevol-400 w-48 h-14 flex justify-center items-center rounded-2xl" data-id="${item.id}">
-  //     ${item.type}
-  //   </p>
-  // `;
-  //   navItem.addEventListener("click", () => {
-  //     headingDisplay.textContent = item.heading;
-  //   });
-  //   navContainer.appendChild(navItem);
-  // });
-</script> -->

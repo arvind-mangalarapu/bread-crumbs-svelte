@@ -117,13 +117,13 @@ function slideR() {
         class="h-[100vh] w-[236px] bg-[#1D1D41] absolute rounded-tr-[20px] rounded-br-[20px] ml-[100px] {slideLeft?'animate-slide-left':''} {slideRight?'animate-slide-right':''}"
         id="popoutNav"
       >
-      <div on:click={slideL} 
+      <divs on:click={slideL} 
     
           class=" absolute w-5 h-14 right-0 top-7 flex justify-center items-center bg-[#2F2F5C] rounded-tl-[14px] rounded-bl-[14px]"
           id="closeSidePopout"
         > 
           <img src="images/backsingle.svg" alt="close arrow" />
-        </div> 
+        </divs> 
     {#each data as item}
     <div class=" hidden target:block " id={item.id} >
       
@@ -141,85 +141,11 @@ function slideR() {
 
 </div>
 </div>
-        <!-- <h1
-          class="text-20 space-x-[10%] text-white mt-6 ml-11 font-bold hidden target:block"
-          id="inventory"
-        >
-          Inventory
-        </h1>
-        <h1
-          class="text-20 space-x-[10%] text-white mt-6 ml-11 font-bold hidden target:block"
-          id="customers"
-        >
-          Customers
-        </h1>
-        <h1
-          class="text-20 space-x-[10%] text-white mt-6 ml-11 font-bold hidden target:block"
-          id="orders"
-        >
-          Orders
-        </h1>
-        <h1
-          class="text-20 space-x-[10%] text-white mt-6 ml-11 font-bold hidden target:block"
-          id="shipments"
-        >
-          Shipments
-        </h1>
-        <h1
-          class="text-20 space-x-[10%] text-white mt-6 ml-11 font-bold hidden target:block"
-          id="discounts"
-        >
-          Discounts
-        </h1>
-        <h1
-          class="text-20 space-x-[10%] text-white mt-6 ml-11 font-bold hidden target:block"
-          id="notifications"
-        >
-          Notifications
-        </h1>
-        <h1
-          class="text-20 space-x-[10%] text-white mt-6 ml-11 font-bold hidden target:block"
-          id="downloads"
-        >
-          Downloads
-        </h1>
-        <div class="hidden target:block" id="settings">
-          <p class="text-20 space-x-[10%] text-white mt-6 ml-11 font-bold">
-            Settings
-          </p>
-        </div>
-
-        <nav
-          class="flex flex-col gap-4 justify-center items-center mt-14"
-          id="navContainer"
-        > 
-         <div>
-            <p
-              class="text-16 text-white text-center font-bold hover:bg-purplevol-400 w-48 h-14 flex justify-center items-center rounded-2xl"
-            >
-              Active orders
-            </p>
-          </div>
-          <div>
-            <p
-              class="text-16 text-white text-center font-bold hover:bg-purplevol-400 w-48 h-14 flex justify-center items-center rounded-2xl"
-            >
-              COD orders
-            </p>
-          </div>
-          <div>
-            <p
-              class="text-16 text-white text-center hover:bg-purplevol-400 w-48 h-14 flex justify-center items-center rounded-2xl"
-            >
-              subscriptions
-            </p>
-          </div> -->
-        <!-- </nav> -->
 
     
     <!-- main page -->
 
-    <section class="left-[350px] h-[100vh] flex-1 max-w-[90%] mx-auto p-6">
+    <section class=" h-[100vh] flex-1 mx-auto p-6">
       <p class="text-[#EAE9FD] font-thin text-14 flex items-baseline gap-2">
         Orders<img src="images/forwardSingle.svg" alt="3" />
       </p>

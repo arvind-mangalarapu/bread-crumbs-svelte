@@ -12,11 +12,21 @@ export default {
 				slideRight: {
 					'0%': { transform: 'translateX(-100%)' },
 					'100%': { transform: 'translateX(0)' }
+				},
+				moveRight: {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(250px)' }
+				},
+				moveLeft: {
+					'0%': { transform: 'translateX(250px)' },
+					'100%': { transform: 'translateX(0)' }
 				}
 			},
 			animation: {
 				'slide-left': 'slideLeft 1s forwards',
-				'slide-right': 'slideRight 1s forwards'
+				'slide-right': 'slideRight 1s forwards',
+				'move-right': 'moveRight 1s forwards',
+				'move-left': 'moveLeft 1s forwards'
 			},
 			boxShadow: {
 				custom: '12px 12px 72px rgba(0, 0, 0, 0.25)',

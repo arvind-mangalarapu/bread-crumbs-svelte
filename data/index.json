@@ -1,0 +1,58 @@
+[
+	{
+		"id": "inventory",
+		"heading": "Inventory",
+		"type": "Aurora",
+		"kind": "Zephyr",
+		"subscription": true
+	},
+	{
+		"id": "customers",
+		"heading": "Customers",
+		"type": "Orion",
+		"kind": "Nimbus",
+		"subscription": false
+	},
+	{
+		"id": "orders",
+		"heading": "Orders",
+		"type": "Cassiopeia",
+		"kind": "Terra",
+		"subscription": true
+	},
+	{
+		"id": "shipments",
+		"heading": "Shipments",
+		"type": "Lyra",
+		"kind": "Voyager",
+		"subscription": false
+	},
+	{
+		"id": "discounts",
+		"heading": "Discounts",
+		"type": "Andromeda",
+		"kind": "Celestial",
+		"subscription": true
+	},
+	{
+		"id": "notifications",
+		"heading": "Notifications",
+		"type": "Phoenix",
+		"kind": "Eclipse",
+		"subscription": false
+	},
+	{
+		"id": "downloads",
+		"heading": "Downloads",
+		"type": "Stellar",
+		"kind": "Solstice",
+		"subscription": true
+	},
+	{
+		"id": "settings",
+		"heading": "Settings",
+		"type": "Neptune",
+		"kind": "Galaxy",
+		"subscription": false
+	}
+]
