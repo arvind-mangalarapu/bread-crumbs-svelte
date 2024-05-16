@@ -308,17 +308,17 @@ function showButton(){
 </style>
 
 {#each orderData as item, index}
-<div class="w-full order-item  hover:bg-purplevol-900">
+<div class="w-full order-item  hover:bg-purplevol-900 relative ">
     <div class="h-[45px] border-b-[0.5px] border-purplevol-800 text-14 flex justify-evenly items-center text-white ">
-        <p class="text-left w-1/4 ">{item.order_number}</p>
+        <p class="text-left w-1/4 pl-4">{item.order_number}</p>
         <p class="text-left w-1/4 ">{item.customer_name}</p>
         <p class="text-left w-1/4 ">{item.order_date}</p>
         <div class="flex items-center justify-start gap-2 text-left w-1/4 ">
             <div class={`h-3 w-3 rounded-full ${getStatusColor(item.status)}`}></div>
-            {item.status}
+            <p>{item.status}</p>
         </div>
         <button 
-            class="text-12 border border-white rounded-md py-1.5 px-5 cancel-btn "
+            class="text-12 border border-white rounded-md py-1.5 px-5 cancel-btn absolute right-7"
             on:click={() => removeItem(index)}>
             Cancel
         </button>
