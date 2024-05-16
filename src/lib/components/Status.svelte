@@ -1,4 +1,5 @@
 <script>
+       import { onMount } from 'svelte';
  let orderData =[
     {
         "order_number": "23934734",
@@ -266,11 +267,17 @@
     }
 ]
 
-
+let refreshComponent = false;
 
 function removeItem(index) {
     orderData = orderData.filter((_, i) => i !== index);
+    refreshComponent = true;
 }
+
+onMount(() => {
+        refreshComponent = false;
+    });
+
 
 function getStatusColor(status) {
         switch (status) {
