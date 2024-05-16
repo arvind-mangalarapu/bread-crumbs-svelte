@@ -272,6 +272,23 @@ function removeItem(index) {
     orderData = orderData.filter((_, i) => i !== index);
 }
 
+function getStatusColor(status) {
+        switch (status) {
+            case 'Cancelled':
+                return 'bg-red-500';
+            case 'On Hold':
+                return 'bg-blue-500';
+            case 'Pending':
+                return 'bg-yellow-500';
+            case 'Shipped':
+                return 'bg-green-500';
+            case 'Delivered':
+                return 'bg-green-700';
+            default:
+                return 'bg-gray-500';
+        }
+    }
+
 let buttonVisible = false;
 
 function showButton(){
@@ -296,7 +313,7 @@ function showButton(){
         <p class="text-left w-1/4 ">{item.customer_name}</p>
         <p class="text-left w-1/4 ">{item.order_date}</p>
         <div class="flex items-center justify-start gap-2 text-left w-1/4 ">
-            <div class="bg-greenDark h-3 w-3 rounded-full"></div>
+            <div class={`h-3 w-3 rounded-full ${getStatusColor(item.status)}`}></div>
             {item.status}
         </div>
         <button 
@@ -310,24 +327,3 @@ function showButton(){
 
 
 
-<!-- <style>
-    .cancel-btn {
-        display: none;
-    }
-    .item:hover .cancel-btn {
-        display: inline-block;
-    }
-</style> -->
-
-<!-- <ul class="list-none p-0">
-    {#each items as item, index}
-        <li class="relative p-2 m-2 bg-gray-100 border border-gray-300 cursor-pointer item">
-            {item}
-            <button 
-                class="cancel-btn absolute right-2 top-1/2 transform -translate-y-1/2 bg-red-500 text-white border-none px-3 py-1"
-                on:click={() => removeItem(index)}>
-                Cancel
-            </button>
-        </li>
-    {/each}
-</ul> -->
