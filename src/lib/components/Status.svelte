@@ -1,5 +1,5 @@
 <script>
-  const orderData =[
+ let orderData =[
     {
         "order_number": "23934734",
         "customer_name": "Ararav Saxana",
@@ -266,16 +266,68 @@
     }
 ]
 
- 
-       
+
+
+function removeItem(index) {
+    orderData = orderData.filter((_, i) => i !== index);
+}
+
+let buttonVisible = false;
+
+function showButton(){
+    buttonVisible = true;
+}
 
 </script>
 
-{#each orderData as item}
-<div  class="h-[45px] border-b-[0.5px] border-purplevol-800 text-14 flex justify-evenly items-center text-white ">
-  <p class="text-left w-[25%]">{item.order_number}</p>
-  <p class="text-left w-[25%]">{item.customer_name}</p>
-  <p class="text-left w-[25%]">{item.order_date}</p>
-  <div class="flex items-center justify-start gap-2 text-left w-[25%]"><div class="bg-greenDark h-3 w-3 rounded-full"></div>{item.status}</div>
+<style>
+    .cancel-btn {
+        display: none;
+    }
+    .order-item:hover .cancel-btn {
+        display: inline-block;
+    }
+</style>
+
+{#each orderData as item, index}
+<div class="w-full hover:bg-purplevol-900 order-item">
+    <div class="h-[45px] border-b-[0.5px] border-purplevol-800 text-14 flex justify-evenly items-center text-white">
+        <p class="text-left w-1/4 ">{item.order_number}</p>
+        <p class="text-left w-1/4 ">{item.customer_name}</p>
+        <p class="text-left w-1/4 ">{item.order_date}</p>
+        <div class="flex items-center justify-start gap-2 text-left w-1/4 ">
+            <div class="bg-greenDark h-3 w-3 rounded-full"></div>
+            {item.status}
+        </div>
+        <button 
+            class="text-12 border border-white rounded-md py-1.5 px-5 cancel-btn fixed right-14"
+            on:click={() => removeItem(index)}>
+            Cancel
+        </button>
+    </div>
 </div>
 {/each}
+
+
+
+<!-- <style>
+    .cancel-btn {
+        display: none;
+    }
+    .item:hover .cancel-btn {
+        display: inline-block;
+    }
+</style> -->
+
+<!-- <ul class="list-none p-0">
+    {#each items as item, index}
+        <li class="relative p-2 m-2 bg-gray-100 border border-gray-300 cursor-pointer item">
+            {item}
+            <button 
+                class="cancel-btn absolute right-2 top-1/2 transform -translate-y-1/2 bg-red-500 text-white border-none px-3 py-1"
+                on:click={() => removeItem(index)}>
+                Cancel
+            </button>
+        </li>
+    {/each}
+</ul> -->

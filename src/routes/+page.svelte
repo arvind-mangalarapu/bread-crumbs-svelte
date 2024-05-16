@@ -1,5 +1,5 @@
 <script>
-	import Status from './../lib/components/Status.svelte';
+	import Status from '../lib/components/status.svelte';
   import DropDown from '../lib/components/Drop-down.svelte';
   // import jsonData from '../../data/index.json'
 
@@ -207,7 +207,7 @@
     <!-- main page -->
 
     <section class=" h-[100vh] flex-1  mx-auto p-6 {slideOpen?'animate-move-right max-w-[74%] ml-4 pl-0':'animate-move-left max-w-[90%]'}">
-      <a class="text-[#EAE9FD] font-thin text-14 flex items-baseline gap-2">
+      <a href="/" class="text-[#EAE9FD] font-thin text-14 flex items-baseline gap-2">
         Orders<img src="images/forwardSingle.svg" alt="3" />
       </a>
       <div class="flex justify-between items-center w-full">
@@ -413,23 +413,9 @@
           >
             <p class="text-purplevol-500 text-12 font-medium">Display</p>
             <div class="bg-purplevol-900 px-4 py-2 rounded-lg">
+              <!-- dropdown custom -->
               <DropDown/>
-              <!-- <select
-                name="shipmentStatus"
-                id="shipmentStatus"
-                class="bg-purplevol-900 text-white"
-              >
-                <option value="option1">1</option>
-                <option value="option2">2</option>
-                <option value="option3">3</option>
-                <option value="option4">4</option>
-                <option value="option5">5</option>
-                <option value="option6">6</option>
-                <option value="option7">7</option>
-                <option value="option8">8</option>
-                <option value="option9">9</option>
-                <option value="option10">10</option>
-              </select> -->
+    
             </div>
           </div>
         </div>
@@ -438,12 +424,3 @@
   </main>
 
 
-
-  <style>
-    /* Custom scrollbar styles */
-    .dropdown-content::-webkit-scrollbar {
-      display: none;
-    }
-  
-   
-  </style>
