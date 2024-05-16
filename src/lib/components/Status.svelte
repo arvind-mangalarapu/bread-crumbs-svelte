@@ -317,7 +317,7 @@ function showButton(){
             {item.status}
         </div>
         <button 
-            class="text-12 border border-white rounded-md py-1.5 px-5 cancel-btn fixed right-14"
+            class="text-12 border border-white rounded-md py-1.5 px-5 cancel-btn "
             on:click={() => removeItem(index)}>
             Cancel
         </button>
