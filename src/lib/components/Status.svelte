@@ -304,11 +304,12 @@ function showButton(){
     .order-item:hover .cancel-btn {
         display: inline-block;
     }
+
 </style>
 
 {#each orderData as item, index}
-<div class="w-full hover:bg-purplevol-900 order-item">
-    <div class="h-[45px] border-b-[0.5px] border-purplevol-800 text-14 flex justify-evenly items-center text-white">
+<div class="w-full order-item  hover:bg-purplevol-900">
+    <div class="h-[45px] border-b-[0.5px] border-purplevol-800 text-14 flex justify-evenly items-center text-white ">
         <p class="text-left w-1/4 ">{item.order_number}</p>
         <p class="text-left w-1/4 ">{item.customer_name}</p>
         <p class="text-left w-1/4 ">{item.order_date}</p>

@@ -78,6 +78,30 @@
 
 
 </script>
+<style>
+
+  .no-scrollbar::-webkit-scrollbar {
+      display: none;
+  }
+  .no-scrollbar {
+      -ms-overflow-style: none;  
+      scrollbar-width: none;  
+  }
+/* Custom scrollbar styling */
+/* .custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #4F46E5; 
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: #F3F4F6;
+  border-radius: 4px;
+} */
+</style>
  
  
  <main class="bg-purplevol-1200 flex">
@@ -402,7 +426,7 @@
           >
             Status</div>
         </div>
-     <div class="h-44 overflow-y-auto"><Status/></div>
+     <div class="h-44 overflow-y-auto no-scrollbar custom-scrollbar "><Status/></div>
         
         <div class="flex gap-10 items-center">
           <p class="text-purplevol-500 mt-5 text-12 font-medium">
