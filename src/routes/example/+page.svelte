@@ -425,7 +425,9 @@
             >
               Status</div>
           </div>
-       <div class="h-44 overflow-y-auto no-scrollbar custom-scrollbar "><Status/></div>
+       <div class="h-[550px] overflow-y-hidden">
+        <Status/>
+      </div>
           
           <div class="flex gap-10 items-center">
             <p class="text-purplevol-500 mt-5 text-12 font-medium">
