@@ -1,240 +1,235 @@
 <script>
 	import Status from '../lib/components/status.svelte';
   import DropDown from '../lib/components/Drop-down.svelte';
-  // import jsonData from '../../data/index.json'
+// import jsonData from '../../data/index.json'
 
-  const info = [
-	{
-		"id": "inventory",
-		"heading": "Inventory",
-		"type": "Aurora",
-		"kind": "Zephyr",
-		"subscription": true
-	},
-	{
-		"id": "customers",
-		"heading": "Customers",
-		"type": "Orion",
-		"kind": "Nimbus",
-		"subscription": false
-	},
-	{
-		"id": "orders",
-		"heading": "Orders",
-		"type": "Cassiopeia",
-		"kind": "Terra",
-		"subscription": true
-	},
-	{
-		"id": "shipments",
-		"heading": "Shipments",
-		"type": "Lyra",
-		"kind": "Voyager",
-		"subscription": false
-	},
-	{
-		"id": "discounts",
-		"heading": "Discounts",
-		"type": "Andromeda",
-		"kind": "Celestial",
-		"subscription": true
-	},
-	{
-		"id": "notifications",
-		"heading": "Notifications",
-		"type": "Phoenix",
-		"kind": "Eclipse",
-		"subscription": false
-	},
-	{
-		"id": "downloads",
-		"heading": "Downloads",
-		"type": "Stellar",
-		"kind": "Solstice",
-		"subscription": true
-	},
-	{
-		"id": "settings",
-		"heading": "Settings",
-		"type": "Neptune",
-		"kind": "Galaxy",
-		"subscription": false
-	}
+const info = [
+{
+  "id": "inventory",
+  "heading": "Inventory",
+  "type": "Aurora",
+  "kind": "Zephyr",
+  "subscription": true
+},
+{
+  "id": "customers",
+  "heading": "Customers",
+  "type": "Orion",
+  "kind": "Nimbus",
+  "subscription": false
+},
+{
+  "id": "orders",
+  "heading": "Orders",
+  "type": "Cassiopeia",
+  "kind": "Terra",
+  "subscription": true
+},
+{
+  "id": "shipments",
+  "heading": "Shipments",
+  "type": "Lyra",
+  "kind": "Voyager",
+  "subscription": false
+},
+{
+  "id": "discounts",
+  "heading": "Discounts",
+  "type": "Andromeda",
+  "kind": "Celestial",
+  "subscription": true
+},
+{
+  "id": "notifications",
+  "heading": "Notifications",
+  "type": "Phoenix",
+  "kind": "Eclipse",
+  "subscription": false
+},
+{
+  "id": "downloads",
+  "heading": "Downloads",
+  "type": "Stellar",
+  "kind": "Solstice",
+  "subscription": true
+},
+{
+  "id": "settings",
+  "heading": "Settings",
+  "type": "Neptune",
+  "kind": "Galaxy",
+  "subscription": false
+}
 ]
+let open = false;
+
+function toggleSidebar() {
+  open = true;
+}
+let slideOpen = false;
 
 
-  let slideOpen = false;
- 
+function openMenu() {
+ console.log("openMenu clidcked")
+ slideOpen = true;
 
-  function openMenu() {
-    console.log("openMenu clidcked")
-    slideOpen = true;
- 
-  }
-  function closeMenu() {
-    console.log("closeMenu clidcked")
-    slideOpen = false;
-  }
+}
+function closeMenu() {
+ console.log("closeMenu clidcked")
+ slideOpen = false;
+}
 
-  let isImage1 = true;
-
-
-
+let isImage1 = true;
 </script>
+
 <style>
-
-  .no-scrollbar::-webkit-scrollbar {
-      display: none;
-  }
-  .no-scrollbar {
-      -ms-overflow-style: none;  
-      scrollbar-width: none;  
-  }
-/* Custom scrollbar styling */
-/* .custom-scrollbar::-webkit-scrollbar {
-  width: 8px;
+/* Smooth transitions */
+.sidebar-transition {
+  transition-property: width, margin-left;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
 }
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #4F46E5; 
-  border-radius: 4px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background-color: #F3F4F6;
-  border-radius: 4px;
-} */
 </style>
- 
- 
- <main class="bg-purplevol-1200 flex">
-    <div class="flex relative w-[100px]   ">
-      <!-- side nav -->
-      <aside
-        class="flex flex-col justify-between items-center w-[100px] h-[100vh] bg-purplevol-1000 shadow-custom z-10 absolute"
-      >
-        <img src="images/logo.svg" alt="logo" class="my-7" />
-        <div class="flex flex-col justify-between h-full" id="nav-item1">
-          <nav
-            class="nav-list flex flex-col justify-evenly items-center h-[588px]"
-          >
-           
-              <a on:click={openMenu}
-                href="#inventory"
-                class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
-                ><img
-                  src="images/inventory.svg"
-                  alt="#"
-                  class="hover:scale-110 hover:fill-white"
-              /></a>
-           
 
-            <a on:click={openMenu}
-              href="#customers"
-              class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
-              ><img
-                src="images/customers.svg"
-                alt="#"
-                class="hover:scale-110 hover:fill-white"
-              />
-            </a>
-
-            <a on:click={openMenu}
-              href="#orders"
-              class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
-              >{#if slideOpen}
-              <img src="images/orders-white.svg" alt="1" class="hover:scale-110 hover:fill-white" />
-            {:else}
-              <img src="images/orders.svg" alt="2" class="hover:scale-110 hover:fill-white" />
-            {/if}</a>
-          
-     
-            <a   on:click={openMenu}
-              href="#shipments"
-              class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
-              ><img
-                src="images/shipment.svg"
-                alt="#"
-                class="hover:scale-110 hover:fill-white"
-            /></a>
-
-            <a  on:click={openMenu}
-              href="#discounts"
-              class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
-              ><img
-                src="images/discount.svg"
-                alt="#"
-                class="hover:scale-110 hover:fill-white"
-            /></a>
-
-            <a  on:click={openMenu}
-              href="#notifications"
-              class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
-              ><img
-                src="images/notification.svg"
-                alt="#"
-                class="hover:scale-110 hover:fill-white"
-            /></a>
-
-            <a  on:click={openMenu}
-              href="#downloads"
-              class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
-              ><img
-                src="images/download.svg"
-                alt="#"
-                class="hover:scale-110 hover:fill-white"
-            /></a>
-
-            <a  on:click={openMenu}
-              href="#settings"
-              class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
-              ><img
-                src="images/settings.svg"
-                alt="#"
-                class="hover:scale-110 hover:fill-white"
-            /></a>
-          </nav>
-          <div class="mb-7">
-            <p
-              class="bg-orangeLight p-5 rounded-full inline-block text-white font-sans text-14"
-            >
-              AM
-            </p>
-          </div>
-        </div>
-      </aside>
-      <!-- popout nav -->
-      <div
-      class="h-[100vh] w-[236px] bg-[#1D1D41] absolute rounded-tr-[20px] rounded-br-[20px] ml-[100px] {slideOpen?'animate-slide-right':'animate-slide-left'}"
-        id="popoutNav"
-      >
-        <!-- svelte-ignore a11y_click_events_have_key_events -->
-        <!-- svelte-ignore a11y_no_static_element_interactions -->
-        <div on:click={closeMenu}
-          class="absolute w-5 h-14 right-0 top-7 flex justify-center items-center bg-[#2F2F5C] rounded-tl-[14px] rounded-bl-[14px]"
-          id="closeSidePopout"
+<div class="flex h-screen bg-purplevol-1200">
+<!-- First Box -->
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<!-- svelte-ignore a11y_no_static_element_interactions -->
+<div class="w-[100px] h-full bg-purplevol-1000 text-white flex items-center justify-center cursor-pointer">
+  <aside
+  class="flex flex-col justify-between items-center w-[100px] h-[100vh] bg-purplevol-1000 shadow-custom z-10 absolute"
+>
+<img src="images/logo.svg" alt="logo" class="my-7" />
+ <div class="flex flex-col justify-between h-full" id="nav-item1">
+        <nav
+          class="nav-list flex flex-col justify-evenly items-center h-[588px]"
         >
-          <img src="images/backsingle.svg" alt="close arrow" />
-        </div>
-        {#each info as item}
-        <div class=" hidden target:block " id={item.id} >
-          
-            <div class="ml-12 mt-[46px]">
-              <p class=" text-20 font-bold text-white mx-auto ">{item.heading}</p>
-            </div>
-            <div class="ml-7 mt-[86px] flex flex-col h-[193px] gap-1">
-              <a href="/"  class="text-16 text-white font-bold hover:bg-purplevol-400  rounded-2xl  pl-5 py-5  max-w-[180px]">{item.type}</a>
-              <a href="/"  class="text-16 text-white font-bold hover:bg-purplevol-400  rounded-2xl  pl-5 py-5  max-w-[180px]">{item.kind}</a>
-              <a href="/"  class="text-16 text-white hover:bg-purplevol-400 rounded-2xl  pl-5 py-5  max-w-[180px]">subscription</a>
-            </div>
-    
-        </div>
-        {/each}  
-      </div>
-    </div>
-    <!-- main page -->
+         
+            <a on:click={openMenu}
+           
+              href="#inventory"
+              class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
+              ><img
+                src="images/inventory.svg"
+                alt="#"
+                class="hover:scale-110 hover:fill-white"
+            /></a>
+         
 
-    <section class=" h-[100vh] flex-1  mx-auto p-6 {slideOpen?'animate-move-right max-w-[74%]  pl-0':'animate-move-left max-w-[90%]'}">
+          <a on:click={openMenu}
+          
+            href="#customers"
+            class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
+            ><img
+              src="images/customers.svg"
+              alt="#"
+              class="hover:scale-110 hover:fill-white"
+            />
+          </a>
+
+          <a on:click={openMenu}
+          
+            href="#orders"
+            class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
+            >{#if slideOpen}
+            <img src="images/orders-white.svg" alt="1" class="hover:scale-110 hover:fill-white" />
+          {:else}
+            <img src="images/orders.svg" alt="2" class="hover:scale-110 hover:fill-white" />
+          {/if}</a>
+        
+   
+          <a   on:click={openMenu}
+          
+            href="#shipments"
+            class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
+            ><img
+              src="images/shipment.svg"
+              alt="#"
+              class="hover:scale-110 hover:fill-white"
+          /></a>
+
+          <a  on:click={openMenu}
+          
+            href="#discounts"
+            class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
+            ><img
+              src="images/discount.svg"
+              alt="#"
+              class="hover:scale-110 hover:fill-white"
+          /></a>
+
+          <a  on:click={openMenu}
+          
+            href="#notifications"
+            class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
+            ><img
+              src="images/notification.svg"
+              alt="#"
+              class="hover:scale-110 hover:fill-white"
+          /></a>
+
+          <a  on:click={openMenu}
+          
+            href="#downloads"
+            class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
+            ><img
+              src="images/download.svg"
+              alt="#"
+              class="hover:scale-110 hover:fill-white"
+          /></a>
+
+          <a  on:click={openMenu}
+          
+            href="#settings"
+            class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
+            ><img
+              src="images/settings.svg"
+              alt="#"
+              class="hover:scale-110 hover:fill-white"
+          /></a>
+        </nav>
+  </aside>
+</div>
+
+<!-- Container for Sidebar and Main Content -->
+<div class="flex transition-all duration-300 whitespace-nowrap  shadow-2xl" style="width: calc(100% - 6rem);">
+  <!-- Second Box (Sidebar) -->
+  <div class="bg-purplevol-1000 h-full transform sidebar-transition flex flex-col rounded-tr-[20px] rounded-br-[20px]" style={`width: ${slideOpen ? '250px' : '0'}; overflow:hidden;`}>
+    <!-- popout slide -->
+    <div class="p-4 text-white">
+      <div
+    class="h-[100vh] w-[236px] bg-[#1D1D41] absolute rounded-tr-[20px] rounded-br-[20px] ml-[100px] "
+      id="popoutNav"
+    >
+      <!-- svelte-ignore a11y_click_events_have_key_events -->
+      <!-- svelte-ignore a11y_no_static_element_interactions -->
+      <div on:click={closeMenu}
+        class="absolute w-5 h-14 right-0 top-7 flex justify-center items-center bg-[#2F2F5C] rounded-tl-[14px] rounded-bl-[14px]"
+        id="closeSidePopout"
+      >
+        <img src="images/backsingle.svg" alt="close arrow" />
+      </div>
+      {#each info as item}
+      <div class=" hidden target:block " id={item.id} >
+        
+          <div class="ml-12 mt-[46px]">
+            <p class=" text-20 font-bold text-white mx-auto ">{item.heading}</p>
+          </div>
+          <div class="ml-7 mt-[86px] flex flex-col h-[193px] gap-1">
+            <a href="/"  class="text-16 text-white font-bold hover:bg-purplevol-400  rounded-2xl  pl-5 py-5  max-w-[180px]">{item.type}</a>
+            <a href="/"  class="text-16 text-white font-bold hover:bg-purplevol-400  rounded-2xl  pl-5 py-5  max-w-[180px]">{item.kind}</a>
+            <a href="/"  class="text-16 text-white hover:bg-purplevol-400 rounded-2xl  pl-5 py-5  max-w-[180px]">subscription</a>
+          </div>
+  
+      </div>
+      {/each}  
+    </div>
+    </div>
+  </div>
+
+  <!-- Third Box (Remaining Content) -->
+  <div class="flex-1 px-4 transition-all duration-300 text-white flex justify-between" style={`margin-left: ${slideOpen ? '0px' : '0'}`}>
+    <section class=" h-[100vh] flex-1  mx-auto ">
       <a href="/" class="text-[#EAE9FD] font-thin text-14 flex items-baseline gap-2">
         Orders<img src="images/forwardSingle.svg" alt="3" />
       </a>
@@ -430,7 +425,9 @@
           >
             Status</div>
         </div>
-     <div class="h-44 overflow-y-auto no-scrollbar custom-scrollbar "><Status/></div>
+     <div class="h-[550px] overflow-y-hidden">
+      <Status/>
+    </div>
         
         <div class="flex gap-10 items-center">
           <p class="text-purplevol-500 mt-5 text-12 font-medium">
@@ -449,6 +446,6 @@
         </div>
       </div>
     </section>
-  </main>
-
-
+  </div>
+</div>
+</div>
