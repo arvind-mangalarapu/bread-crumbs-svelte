@@ -69,11 +69,14 @@
   function openMenu() {
     console.log("openMenu clidcked")
     slideOpen = true;
+ 
   }
   function closeMenu() {
     console.log("closeMenu clidcked")
     slideOpen = false;
   }
+
+  let isImage1 = true;
 
 
 
@@ -139,12 +142,13 @@
             <a on:click={openMenu}
               href="#orders"
               class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
-              ><img
-                src="images/orders.svg"
-                alt="#"
-                class="hover:scale-110 hover:fill-white"
-            /></a>
-
+              >{#if slideOpen}
+              <img src="images/orders-white.svg" alt="1" class="hover:scale-110 hover:fill-white" />
+            {:else}
+              <img src="images/orders.svg" alt="2" class="hover:scale-110 hover:fill-white" />
+            {/if}</a>
+          
+     
             <a   on:click={openMenu}
               href="#shipments"
               class="hover:bg-[#2F2F5C] h-14 w-14 rounded-lg flex justify-center items-center"
@@ -230,7 +234,7 @@
     </div>
     <!-- main page -->
 
-    <section class=" h-[100vh] flex-1  mx-auto p-6 {slideOpen?'animate-move-right max-w-[74%] ml-4 pl-0':'animate-move-left max-w-[90%]'}">
+    <section class=" h-[100vh] flex-1  mx-auto p-6 {slideOpen?'animate-move-right max-w-[74%]  pl-0':'animate-move-left max-w-[90%]'}">
       <a href="/" class="text-[#EAE9FD] font-thin text-14 flex items-baseline gap-2">
         Orders<img src="images/forwardSingle.svg" alt="3" />
       </a>
@@ -436,7 +440,7 @@
             class="flex items-center justify-center gap-3 text-purplevol-500 mt-5 text-12 font-medium"
           >
             <p class="text-purplevol-500 text-12 font-medium">Display</p>
-            <div class="bg-purplevol-900 px-4 py-2 rounded-lg">
+            <div class="bg-purplevol-900 rounded-lg">
               <!-- dropdown custom -->
               <DropDown/>
     

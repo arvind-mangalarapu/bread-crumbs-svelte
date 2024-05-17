@@ -1,18 +1,15 @@
 <script>
   import { onMount } from 'svelte';
   let isOpen = false;
+  let selectedOption = '';
 
+  const toggleDropdown = () => isOpen = !isOpen;
 
-  function toggleDropdown() {
-    isOpen = !isOpen;
-  }
-
-  function selectOption(option) {
+  const selectOption = (option) => {
     selectedOption = option;
     isOpen = false;
-  }
+  };
 
-  // Close the dropdown if clicked outside
   onMount(() => {
     const handleClickOutside = (event) => {
       if (!event.target.closest('.dropdown')) {
@@ -26,56 +23,33 @@
   });
 </script>
 
-<style>
-  /* Custom scrollbar styles */
-  .dropdown-content::-webkit-scrollbar {
-    display: none;
-  }
-
- 
-</style>
-
 <div class="w-20 relative dropdown">
- 
-  <div class="relative">
-    <button
-      id="customSelect"
-      class="block w-20 h-7 bg-purplevol-900 border-gray-300 rounded-md shadow-sm text-left focus:border-indigo-500 sm:text-sm"
-      on:click|preventDefault={toggleDropdown}
-    >
-      
-<img class="w-3 h-3 absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none" src="../images/upArrow.svg" alt="/">
-    </button>
-    
-    <div
-      id="dropdownMenu"
-      class="dropdown-menu absolute z-10 mt-1 w-full bg-purplevol-900 rounded-md shadow-lg bottom-full mb-4"
-      style="display: {isOpen ? 'block' : 'none'}"
-    >
-   
-      <div class="py-1 text-center">
-        <a
-          href="#"
-          class="block w-full px-4 py-2 text-purplevol-500 hover:bg-purplevol-1000"
-          on:click|preventDefault={() => selectOption('Option 1')}
-        >
-          1
-        </a>
-        <a
-          href="#"
-          class="block w-full px-4 py-2 text-purplevol-500 hover:bg-purplevol-1000"
-          on:click|preventDefault={() => selectOption('Option 2')}
-        >
-          2
-        </a>
-        <a
-          href="#"
-          class="block w-full px-4 py-2 text-purplevol-500 hover:bg-purplevol-1000"
-          on:click|preventDefault={() => selectOption('Option 3')}
-        >
-          3
-        </a>
-      </div>
-    </div>
+  <button
+    class="block w-full h-7 bg-purplevol-900 border-gray-300 rounded-md shadow-sm text-left focus:border-indigo-500 sm:text-sm relative"
+    on:click|preventDefault={toggleDropdown}
+  >
+    <span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+      {#if isOpen}
+        <img class="w-3 h-3 transform rotate-180" src="../images/upArrow.svg" alt="Up Arrow" />
+      {:else}
+        <img class="w-3 h-3" src="../images/upArrow.svg" alt="Down Arrow" />
+      {/if}
+    </span>
+    <span>{selectedOption || '0'}</span>
+  </button>
+
+  <div
+    class="dropdown-menu absolute z-10 mt-1 w-full bg-purplevol-900 rounded-md shadow-lg bottom-full mb-4"
+    style="display: {isOpen ? 'block' : 'none'}"
+  >
+    {#each ['1', '2', '3','4','5','6','7'] as option}
+      <a
+        href="#"
+        class="block w-full px-4 py-2 text-purplevol-500 hover:bg-purplevol-1000"
+        on:click|preventDefault={() => selectOption(option)}
+      >
+        {option}
+      </a>
+    {/each}
   </div>
 </div>

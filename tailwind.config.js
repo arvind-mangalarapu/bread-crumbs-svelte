@@ -14,12 +14,12 @@ export default {
 					'100%': { transform: 'translateX(0)' }
 				},
 				moveRight: {
-					'0%': { transform: 'translateX(0)' },
-					'100%': { transform: 'translateX(250px)' }
+					'0%': { transform: 'translateX(-250px)' },
+					'100%': { transform: 'translateX(0px)' }
 				},
 				moveLeft: {
 					'0%': { transform: 'translateX(250px)' },
-					'100%': { transform: 'translateX(0)' }
+					'100%': { transform: 'translateX(0px)' }
 				}
 			},
 			animation: {
@@ -30,9 +30,14 @@ export default {
 			},
 			boxShadow: {
 				custom: '12px 12px 72px rgba(0, 0, 0, 0.25)',
+				right: '10px 0 20px rgba(17, 16, 45, 0.9)',
 				lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
 				xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
 				'2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+			},
+			gridTemplateColumns: {
+				// Complex site-specific row configuration
+				layout: '100px 250px 1fr'
 			},
 			fontSize: {
 				8: '8px',
