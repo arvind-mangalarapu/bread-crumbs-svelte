@@ -123,7 +123,7 @@ let isImage1 = true;
             ><img
               src="images/customers.svg"
               alt="#"
-              class="hover:scale-110 hover:fill-white"
+              class="hover:scale-110 hover:fill-white hover:stroke-black"
             />
           </a>
 
@@ -268,7 +268,7 @@ let isImage1 = true;
             <div
               class="h-16 w-16 bg-orangeLight flex items-center justify-center rounded-2xl"
             >
-              <img src="images/dots.svg" alt="tick" />
+              <img src="images/dots.svg" alt="tick" class="hover:stroke-red-600" />
             </div>
             <div class="">
               <p
@@ -410,7 +410,7 @@ let isImage1 = true;
         </div>
       </div>
 
-      <div class="bg-purplevol-1000 mt-5 px-5 py-6 rounded-3xl">
+      <div class="bg-purplevol-1000 mt-5 px-5 py-6 rounded-3xl ">
         <div class="flex justify-evenly items-center pb-5 border-b-[0.5px] border-purplevol-800">
           <div  class="flex gap-5 text-12 font-semibold tracking-[7%] uppercase text-purplevol-500 text-left w-[25%]"
           >
@@ -425,9 +425,9 @@ let isImage1 = true;
           >
             Status</div>
         </div>
-     <div class="h-[550px] overflow-y-hidden">
-      <Status/>
-    </div>
+            <div class="h-[280px] justify-center items-center flex flex-col flex-wrap overflow-x-scroll snap-x snap-center snap-always">
+              <Status/>
+            </div>
         
         <div class="flex gap-10 items-center">
           <p class="text-purplevol-500 mt-5 text-12 font-medium">
